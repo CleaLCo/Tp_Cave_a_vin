@@ -30,7 +30,7 @@ public class Client {
     @Column(length=50, nullable = false , name = "FIRST_NAME")
     private String firstName;
 
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL, orphanRemoval=true)
     @JoinColumn(name = "ADDRESS_ID")
     private Address address;
 
