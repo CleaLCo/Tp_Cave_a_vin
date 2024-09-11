@@ -63,13 +63,6 @@ public class TestOneToOneAssociation {
 
     }
 
-    @Test
-    public void testDelete() {
-
-        Optional<Address> addressOpt = addressRepository.findById(1);
-        Assertions.assertThat(addressOpt.isPresent()).isFalse();
-
-    }
 
     @Test
     public void testDeleteCascade() {
@@ -85,6 +78,21 @@ public class TestOneToOneAssociation {
 
         Optional<Address> addressOpt = addressRepository.findById(1);
         Assertions.assertThat(addressOpt).isEmpty();
+
+    }
+
+    @Test
+    public void testDetachedAddress() {
+
+        final String username = "keke29";
+        Optional<Client> clientOpt = clientRepository.findById(username);
+        Assertions.assertThat(clientOpt).isPresent();
+
+        clientOpt.get().setAddress(null);
+        clientRepository.save(clientOpt.get());
+
+        Optional<Address> addressOpt = addressRepository.findById(1);
+        Assertions.assertThat(addressOpt).isNotPresent();
 
     }
 
