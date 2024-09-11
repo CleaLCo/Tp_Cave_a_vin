@@ -1,15 +1,13 @@
 package fr.eni.caveavin.bo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString()
 @EqualsAndHashCode(of={"username"})
 @Entity
 @Table(name="CAV_CLIENT")
@@ -31,5 +29,9 @@ public class Client {
     @NonNull
     @Column(length=50, nullable = false , name = "FIRST_NAME")
     private String firstName;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "ADDRESS_ID")
+    private Address address;
 
 }
