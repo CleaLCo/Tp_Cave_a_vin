@@ -1,34 +1,21 @@
 package fr.eni.caveavin.bo.client;
 
+import fr.eni.caveavin.bo.User;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
-@ToString()
-@EqualsAndHashCode(of={"username"})
+@AllArgsConstructor
+@ToString(callSuper=true)
+@SuperBuilder
+@EqualsAndHashCode(callSuper=true)
+
 @Entity
-@Table(name="CAV_CLIENT")
-public class Client {
+@Table(name = "CAV_CLIENT")
+public class Client extends User {
 
-    @Id
-    @Column(length=50, name="LOGIN", nullable=false)
-    private String username;
-
-    @Column(length=255, nullable=false, name = "PASSWORD")
-    @NonNull
-    @ToString.Exclude
-    private String password;
-
-    @NonNull
-    @Column(length=50, nullable=false, name = "LAST_NAME")
-    private String lastName;
-
-    @NonNull
-    @Column(length=50, nullable = false , name = "FIRST_NAME")
-    private String firstName;
 
     @OneToOne(cascade=CascadeType.ALL, orphanRemoval=true)
     @JoinColumn(name = "ADDRESS_ID")
