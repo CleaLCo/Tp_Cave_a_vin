@@ -1,7 +1,7 @@
 package fr.eni.caveavin;
 
-import fr.eni.caveavin.bo.Address;
-import fr.eni.caveavin.bo.Client;
+import fr.eni.caveavin.bo.client.Address;
+import fr.eni.caveavin.bo.client.Client;
 import fr.eni.caveavin.dal.AddressRepository;
 import fr.eni.caveavin.dal.ClientRepository;
 import org.assertj.core.api.Assertions;
@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.ActiveProfiles;
 
-import java.sql.SQLOutput;
-import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest

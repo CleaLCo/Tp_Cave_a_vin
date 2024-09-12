@@ -1,6 +1,6 @@
 package fr.eni.caveavin;
 
-import fr.eni.caveavin.bo.Client;
+import fr.eni.caveavin.bo.client.Client;
 import fr.eni.caveavin.dal.ClientRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
